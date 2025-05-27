@@ -4,7 +4,10 @@
 
 <html>
 <head runat="server">
-    <title>User List</title> <script src="Scripts/UserList.js"></script>
+    <title>User List</title> 
+     <!-- Include jQuery library -->
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="Scripts/UserList.js"></script>
 </head>
 <body>
     <h1>User List</h1>

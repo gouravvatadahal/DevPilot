@@ -1,4 +1,5 @@
-﻿$(document).ready(function () {
+﻿debugger
+$(document).ready(function () {
     $.ajax({
         type: "GET",
         url: "/api/Users",
@@ -6,7 +7,7 @@
         dataType: "json",
         success: function (data) {
             $.each(data, function (index, user) {
-                $("#userListBody").append("<tr><td>" + user.UserName + "</td><td>" + user.AccessLevel + "</td></tr>");
+                $("#userListBody").append("<tr><td>" + user.Name + "</td><td>" + user.AccessLevel + "</td></tr>");
             });
         },
         error: function (xhr, status, error) {
