@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Hackathon\\DevPilot\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|C:\\Hackathon\\DevPilot\\devpilot\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|c:\\hackathon\\devpilot\\devpilot\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,11 +11,11 @@
       "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|c:\\hackathon\\devpilot\\devpilot\\views\\home\\users.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|C:\\Hackathon\\DevPilot\\devpilot\\views\\home\\users.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\views\\home\\users.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|c:\\hackathon\\devpilot\\devpilot\\error.asp||{C76D83F8-A489-11D0-8195-00A0C91BBEE3}",
+      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|C:\\Hackathon\\DevPilot\\devpilot\\error.asp||{C76D83F8-A489-11D0-8195-00A0C91BBEE3}",
       "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\error.asp||{C76D83F8-A489-11D0-8195-00A0C91BBEE3}"
     },
     {
@@ -31,7 +31,7 @@
       "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\userlist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|c:\\hackathon\\devpilot\\devpilot\\features.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|C:\\Hackathon\\DevPilot\\devpilot\\features.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\features.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
@@ -87,8 +87,7 @@
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
               "WhenOpened": "2025-05-27T11:55:41.736Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -101,8 +100,7 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-27T11:57:22.492Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -115,8 +113,7 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-27T11:55:56.461Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -126,7 +123,7 @@
               "RelativeDocumentMoniker": "DevPilot\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\Hackathon\\DevPilot\\DevPilot\\Controllers\\HomeController.cs",
               "RelativeToolTip": "DevPilot\\Controllers\\HomeController.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAAACkAAAAJAAAA",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAACoAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-27T11:52:45.351Z",
               "IsPinned": true,
@@ -143,8 +140,7 @@
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2025-05-27T12:01:06.609Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -157,8 +153,7 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-05-27T12:07:18.634Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -171,8 +166,7 @@
               "ViewState": "AQIAAOUAAAAAAAAAAAAUwPYAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-05-27T16:00:08.692Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -185,8 +179,7 @@
               "ViewState": "AQIAABUAAAAAAAAAAAAAACAAAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-27T16:09:50.758Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -199,8 +192,7 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-27T16:13:29.564Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -213,8 +205,7 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-05-28T04:27:27.879Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -227,8 +218,7 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-05-28T05:30:34.291Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -238,11 +228,10 @@
               "RelativeDocumentMoniker": "DevPilot\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Hackathon\\DevPilot\\DevPilot\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "DevPilot\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAASAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAABAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-05-27T12:47:53.295Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -402,8 +391,7 @@
               "RelativeToolTip": "DevPilot\\App_Start\\RouteConfig.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAABEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T12:44:09.811Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T12:44:09.811Z"
             },
             {
               "$type": "Document",
@@ -415,8 +403,7 @@
               "RelativeToolTip": "DevPilot\\Models\\UserList.cs",
               "ViewState": "AQIAAAQAAAAAAAAAAAAuwAcAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T12:08:33.276Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T12:08:33.276Z"
             },
             {
               "$type": "Document",
@@ -428,8 +415,7 @@
               "RelativeToolTip": "DevPilot\\Views\\Home\\Login.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-27T12:04:48.967Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T12:04:48.967Z"
             },
             {
               "$type": "Document",

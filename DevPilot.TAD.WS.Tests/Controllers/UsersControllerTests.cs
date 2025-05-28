@@ -34,19 +34,15 @@ namespace DevPilot.TAD.WS.Tests.Controllers
             Assert.IsNotNull(result);
             Assert.IsNotNull(result.Content);
             Assert.AreEqual(3, result.Content.Count);
-
-            var users = result.Content;
-            Assert.AreEqual(1, users[0].Id);
-            Assert.AreEqual("Alice", users[0].Name);
-            Assert.AreEqual("Admin", users[0].AccessLevel);
-
-            Assert.AreEqual(2, users[1].Id);
-            Assert.AreEqual("Bob", users[1].Name);
-            Assert.AreEqual("Editor", users[1].AccessLevel);
-
-            Assert.AreEqual(3, users[2].Id);
-            Assert.AreEqual("Charlie", users[2].Name);
-            Assert.AreEqual("Viewer", users[2].AccessLevel);
+            Assert.AreEqual(1, result.Content[0].Id);
+            Assert.AreEqual("Alice", result.Content[0].Name);
+            Assert.AreEqual("Admin", result.Content[0].AccessLevel);
+            Assert.AreEqual(2, result.Content[1].Id);
+            Assert.AreEqual("Bob", result.Content[1].Name);
+            Assert.AreEqual("Editor", result.Content[1].AccessLevel);
+            Assert.AreEqual(3, result.Content[2].Id);
+            Assert.AreEqual("Charlie", result.Content[2].Name);
+            Assert.AreEqual("Viewer", result.Content[2].AccessLevel);
         }
 
         [TestMethod]
@@ -56,6 +52,7 @@ namespace DevPilot.TAD.WS.Tests.Controllers
             var result = _controller.Get();
 
             // Assert
+            Assert.IsNotNull(result);
             Assert.IsInstanceOfType(result, typeof(OkNegotiatedContentResult<List<Users>>));
         }
 
