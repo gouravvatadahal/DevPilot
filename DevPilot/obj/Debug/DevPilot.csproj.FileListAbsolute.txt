@@ -139,3 +139,13 @@ C:\Hackathon\DevPilot\DevPilot\bin\System.Text.Encodings.Web.xml
 C:\Hackathon\DevPilot\DevPilot\bin\System.Text.Json.xml
 C:\Hackathon\DevPilot\DevPilot\bin\System.Threading.Tasks.Extensions.xml
 C:\Hackathon\DevPilot\DevPilot\bin\System.ValueTuple.xml
+C:\Hackathon\DevPilot\DevPilot\bin\Common.Logging.Core.dll
+C:\Hackathon\DevPilot\DevPilot\bin\Common.Logging.dll
+C:\Hackathon\DevPilot\DevPilot\bin\LaunchDarkly.Cache.dll
+C:\Hackathon\DevPilot\DevPilot\bin\LaunchDarkly.Client.dll
+C:\Hackathon\DevPilot\DevPilot\bin\LaunchDarkly.Common.StrongName.dll
+C:\Hackathon\DevPilot\DevPilot\bin\LaunchDarkly.EventSource.dll
+C:\Hackathon\DevPilot\DevPilot\bin\Common.Logging.pdb
+C:\Hackathon\DevPilot\DevPilot\bin\Common.Logging.xml
+C:\Hackathon\DevPilot\DevPilot\bin\Common.Logging.Core.pdb
+C:\Hackathon\DevPilot\DevPilot\bin\Common.Logging.Core.xml

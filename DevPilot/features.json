@@ -1,6 +1,12 @@
 ﻿{
 	"FeatureManagement": {
-		"NewFeature": false,
-		"BetaFeature": false
+		"NewFeature": true,
+		"BetaFeature": false,
+		"LDNewFeature": {
+			"launchDarkly": {
+				"flagKey": "LDNewFeature",
+				"defaultValue": true
+			}
+		}
 	}
 }
