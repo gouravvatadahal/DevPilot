@@ -1,3 +1,4 @@
+using Microsoft.FeatureManagement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,8 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using Microsoft.FeatureManagement;
+using Microsoft.Extensions.Configuration;
 
 namespace DevPilot
 {
@@ -20,6 +23,14 @@ namespace DevPilot
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            // Configure Feature Management
+            var configuration = 
+                new ConfigurationBuilder()
+                .AddJsonFile("features.json")
+                .Build();
+            var test = new Microsoft.FeatureManagement.ConfigurationFeatureDefinitionProvider(configuration);
+            var featureManager = new FeatureManager(test);
+            HttpContext.Current.Application["FeatureManager"] = featureManager;
         }
     }
 }

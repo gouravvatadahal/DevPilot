@@ -3,52 +3,68 @@
   "WorkspaceRootPath": "C:\\Hackathon\\DevPilot\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|c:\\hackathon\\devpilot\\devpilot\\scripts\\userlist.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\scripts\\userlist.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|c:\\hackathon\\devpilot\\devpilot\\scripts\\bootstrap.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\scripts\\bootstrap.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|c:\\hackathon\\devpilot\\devpilot\\api\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\api\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|c:\\hackathon\\devpilot\\devpilot\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|C:\\Hackathon\\DevPilot\\devpilot\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|c:\\hackathon\\devpilot\\devpilot\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|c:\\hackathon\\devpilot\\devpilot\\error.asp||{C76D83F8-A489-11D0-8195-00A0C91BBEE3}",
+      "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\error.asp||{C76D83F8-A489-11D0-8195-00A0C91BBEE3}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|c:\\hackathon\\devpilot\\devpilot\\models\\userlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\models\\userlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|C:\\Hackathon\\DevPilot\\devpilot\\api\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\api\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|c:\\hackathon\\devpilot\\devpilot\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|C:\\Hackathon\\DevPilot\\devpilot\\scripts\\userlist.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\scripts\\userlist.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|c:\\hackathon\\devpilot\\devpilot\\userlist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|C:\\Hackathon\\DevPilot\\devpilot\\userlist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\userlist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|c:\\hackathon\\devpilot\\devpilot\\userlist.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\userlist.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|c:\\hackathon\\devpilot\\devpilot\\views\\home\\users.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\views\\home\\users.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|c:\\hackathon\\devpilot\\devpilot\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|c:\\hackathon\\devpilot\\devpilot\\features.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\features.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Hackathon\\DevPilot\\DevPilot\\Features.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DevPilot\\Features.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|C:\\Hackathon\\DevPilot\\devpilot\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|C:\\Hackathon\\DevPilot\\devpilot\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|c:\\hackathon\\devpilot\\devpilot\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|C:\\Hackathon\\DevPilot\\devpilot\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|c:\\hackathon\\devpilot\\devpilot\\filename.asp||{C76D83F8-A489-11D0-8195-00A0C91BBEE3}",
-      "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\filename.asp||{C76D83F8-A489-11D0-8195-00A0C91BBEE3}"
+      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|C:\\Hackathon\\DevPilot\\devpilot\\scripts\\bootstrap.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\scripts\\bootstrap.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|C:\\Hackathon\\DevPilot\\devpilot\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|C:\\Hackathon\\DevPilot\\devpilot\\models\\userlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\models\\userlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|C:\\Hackathon\\DevPilot\\devpilot\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|C:\\Hackathon\\DevPilot\\devpilot\\userlist.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1393B114-5235-4421-80DB-7D736FF6BB2F}|DevPilot\\DevPilot.csproj|solutionrelative:devpilot\\userlist.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,11 +74,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "UserList.aspx",
               "DocumentMoniker": "C:\\Hackathon\\DevPilot\\DevPilot\\UserList.aspx",
               "RelativeDocumentMoniker": "DevPilot\\UserList.aspx",
@@ -82,7 +98,7 @@
               "RelativeDocumentMoniker": "DevPilot\\API\\UsersController.cs",
               "ToolTip": "C:\\Hackathon\\DevPilot\\DevPilot\\API\\UsersController.cs",
               "RelativeToolTip": "DevPilot\\API\\UsersController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAMAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-27T11:57:22.492Z",
               "IsPinned": true,
@@ -90,7 +106,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 15,
               "Title": "UserList.aspx.cs",
               "DocumentMoniker": "C:\\Hackathon\\DevPilot\\DevPilot\\UserList.aspx.cs",
               "RelativeDocumentMoniker": "DevPilot\\UserList.aspx.cs",
@@ -104,13 +120,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Hackathon\\DevPilot\\DevPilot\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "DevPilot\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\Hackathon\\DevPilot\\DevPilot\\Controllers\\HomeController.cs",
               "RelativeToolTip": "DevPilot\\Controllers\\HomeController.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAAAAB0AAAAIAAAA",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAABgAAABCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-27T11:52:45.351Z",
               "IsPinned": true,
@@ -118,12 +134,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "FileName.asp",
-              "DocumentMoniker": "C:\\Hackathon\\DevPilot\\DevPilot\\FileName.asp",
-              "RelativeDocumentMoniker": "DevPilot\\FileName.asp",
-              "ToolTip": "C:\\Hackathon\\DevPilot\\DevPilot\\FileName.asp",
-              "RelativeToolTip": "DevPilot\\FileName.asp",
+              "DocumentIndex": 1,
+              "Title": "Error.asp",
+              "DocumentMoniker": "C:\\Hackathon\\DevPilot\\DevPilot\\Error.asp",
+              "RelativeDocumentMoniker": "DevPilot\\Error.asp",
+              "ToolTip": "C:\\Hackathon\\DevPilot\\DevPilot\\Error.asp",
+              "RelativeToolTip": "DevPilot\\Error.asp",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2025-05-27T12:01:06.609Z",
@@ -132,13 +148,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "UserList.js",
               "DocumentMoniker": "C:\\Hackathon\\DevPilot\\DevPilot\\Scripts\\UserList.js",
               "RelativeDocumentMoniker": "DevPilot\\Scripts\\UserList.js",
               "ToolTip": "C:\\Hackathon\\DevPilot\\DevPilot\\Scripts\\UserList.js",
               "RelativeToolTip": "DevPilot\\Scripts\\UserList.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAoAAAAKAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-05-27T12:07:18.634Z",
               "IsPinned": true,
@@ -146,15 +162,71 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 11,
               "Title": "bootstrap.js",
               "DocumentMoniker": "C:\\Hackathon\\DevPilot\\DevPilot\\Scripts\\bootstrap.js",
               "RelativeDocumentMoniker": "DevPilot\\Scripts\\bootstrap.js",
               "ToolTip": "C:\\Hackathon\\DevPilot\\DevPilot\\Scripts\\bootstrap.js",
               "RelativeToolTip": "DevPilot\\Scripts\\bootstrap.js",
-              "ViewState": "AQIAACYAAAAAAAAAAAAUwDgAAAAVAAAA",
+              "ViewState": "AQIAAOUAAAAAAAAAAAAUwPYAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-05-27T16:00:08.692Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Global.asax.cs",
+              "DocumentMoniker": "C:\\Hackathon\\DevPilot\\DevPilot\\Global.asax.cs",
+              "RelativeDocumentMoniker": "DevPilot\\Global.asax.cs",
+              "ToolTip": "C:\\Hackathon\\DevPilot\\DevPilot\\Global.asax.cs",
+              "RelativeToolTip": "DevPilot\\Global.asax.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAACAAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T16:09:50.758Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Features.cs",
+              "DocumentMoniker": "C:\\Hackathon\\DevPilot\\DevPilot\\Features.cs",
+              "RelativeDocumentMoniker": "DevPilot\\Features.cs",
+              "ToolTip": "C:\\Hackathon\\DevPilot\\DevPilot\\Features.cs",
+              "RelativeToolTip": "DevPilot\\Features.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T16:13:29.564Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "features.json",
+              "DocumentMoniker": "C:\\Hackathon\\DevPilot\\DevPilot\\features.json",
+              "RelativeDocumentMoniker": "DevPilot\\features.json",
+              "ToolTip": "C:\\Hackathon\\DevPilot\\DevPilot\\features.json",
+              "RelativeToolTip": "DevPilot\\features.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-28T04:27:27.879Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Users.cshtml",
+              "DocumentMoniker": "C:\\Hackathon\\DevPilot\\DevPilot\\Views\\Home\\Users.cshtml",
+              "RelativeDocumentMoniker": "DevPilot\\Views\\Home\\Users.cshtml",
+              "ToolTip": "C:\\Hackathon\\DevPilot\\DevPilot\\Views\\Home\\Users.cshtml",
+              "RelativeToolTip": "DevPilot\\Views\\Home\\Users.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-28T05:08:17.358Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
@@ -308,7 +380,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 12,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Hackathon\\DevPilot\\DevPilot\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "DevPilot\\Views\\Shared\\_Layout.cshtml",
@@ -334,7 +406,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 13,
               "Title": "UserList.cs",
               "DocumentMoniker": "C:\\Hackathon\\DevPilot\\DevPilot\\Models\\UserList.cs",
               "RelativeDocumentMoniker": "DevPilot\\Models\\UserList.cs",
@@ -347,7 +419,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 14,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Hackathon\\DevPilot\\DevPilot\\Views\\Home\\Login.cshtml",
               "RelativeDocumentMoniker": "DevPilot\\Views\\Home\\Login.cshtml",
@@ -366,7 +438,7 @@
               "RelativeDocumentMoniker": "DevPilot\\Web.config",
               "ToolTip": "C:\\Hackathon\\DevPilot\\DevPilot\\Web.config",
               "RelativeToolTip": "DevPilot\\Web.config",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
               "WhenOpened": "2025-05-27T12:02:04.259Z",
               "EditorCaption": ""

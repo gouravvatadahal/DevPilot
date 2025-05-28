@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.FeatureManagement;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -9,14 +11,25 @@ namespace DevPilot.Controllers
 {
     public class HomeController : Controller
     {
+        public HomeController()
+        {
+        }
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Users()
+        public async Task<ActionResult> Users()
         {
-            return Redirect("~/UserList.aspx");
+            var featureManager = (FeatureManager)HttpContext.Application["FeatureManager"];
+            if (await featureManager.IsEnabledAsync("NewFeature"))
+            {
+                return Redirect("~/UserList.aspx");
+            }
+            else
+            {
+                return Redirect("~/Error.asp");
+            }
         }
 
         [HttpGet]

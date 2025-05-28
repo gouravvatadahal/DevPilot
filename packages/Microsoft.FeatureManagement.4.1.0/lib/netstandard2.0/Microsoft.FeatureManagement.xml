@@ -1,0 +1,1456 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.FeatureManagement</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.FeatureManagement.Allocation">
+            <summary>
+            The definition of how variants are allocated for a feature.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.Allocation.DefaultWhenEnabled">
+            <summary>
+            The default variant used if the feature is enabled and no variant is assigned.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.Allocation.DefaultWhenDisabled">
+            <summary>
+            The default variant used if the feature is disabled.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.Allocation.User">
+            <summary>
+            Describes a mapping of user ids to variants.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.Allocation.Group">
+            <summary>
+            Describes a mapping of group names to variants.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.Allocation.Percentile">
+            <summary>
+            Allocates percentiles of user base to variants.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.Allocation.Seed">
+            <summary>
+            Maps users to the same percentile across multiple feature flags.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.GroupAllocation">
+            <summary>
+            The definition of a group allocation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.GroupAllocation.Variant">
+            <summary>
+            The name of the variant.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.GroupAllocation.Groups">
+            <summary>
+            A list of groups that can be assigned this variant.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.PercentileAllocation">
+            <summary>
+            The definition of a percentile allocation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.PercentileAllocation.Variant">
+            <summary>
+            The name of the variant.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.PercentileAllocation.From">
+            <summary>
+            The inclusive lower bound of the percentage to which the variant will be assigned.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.PercentileAllocation.To">
+            <summary>
+            The exclusive upper bound of the percentage to which the variant will be assigned.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.UserAllocation">
+            <summary>
+            The definition of a user allocation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.UserAllocation.Variant">
+            <summary>
+            The name of the variant.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.UserAllocation.Users">
+            <summary>
+            A list of users that will be assigned this variant.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.ConfigurationFeatureDefinitionProvider">
+            <summary>
+            A feature definition provider that pulls feature definitions from the .NET Core <see cref="T:Microsoft.Extensions.Configuration.IConfiguration" /> system.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.ConfigurationFeatureDefinitionProvider.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Creates a configuration feature definition provider.
+            </summary>
+            <param name="configuration">The configuration of feature definitions.</param>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.ConfigurationFeatureDefinitionProvider.RootConfigurationFallbackEnabled">
+            <summary>
+            The option that controls the behavior when "FeatureManagement" section in the configuration is missing.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.ConfigurationFeatureDefinitionProvider.Logger">
+            <summary>
+            The logger for the configuration feature definition provider.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.ConfigurationFeatureDefinitionProvider.Dispose">
+            <summary>
+            Disposes the change subscription of the configuration.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.ConfigurationFeatureDefinitionProvider.GetFeatureDefinitionAsync(System.String)">
+            <summary>
+            Retrieves the definition for a given feature.
+            </summary>
+            <param name="featureName">The name of the feature to retrieve the definition for.</param>
+            <returns>The feature's definition.</returns>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.ConfigurationFeatureDefinitionProvider.GetAllFeatureDefinitionsAsync">
+            <summary>
+            Retrieves definitions for all features.
+            </summary>
+            <returns>An enumerator which provides asynchronous iteration over feature definitions.</returns>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.ConfigurationWrapper">
+            <summary>
+            Wraps an instance of IConfiguration. This allows the reference to be updated when the underlying IConfiguration is updated. 
+            This is useful for cache busting based on the reference.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.ContextualFeatureFilterEvaluator">
+            <summary>
+            Provides a performance efficient method of evaluating IContextualFeatureFilter&lt;T&gt; without knowing what the generic type parameter is.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureDefinition">
+            <summary>
+            The definition of a feature.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureDefinition.Name">
+            <summary>
+            The name of the feature.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureDefinition.EnabledFor">
+            <summary>
+            The feature filters that the feature can be enabled for.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureDefinition.RequirementType">
+            <summary>
+            Determines whether any or all registered feature filters must be enabled for the feature to be considered enabled.
+            The default value is <see cref="F:Microsoft.FeatureManagement.RequirementType.Any" />.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureDefinition.Status">
+            <summary>
+            When set to <see cref="F:Microsoft.FeatureManagement.FeatureStatus.Disabled" />, this feature will always be considered disabled regardless of the rest of the feature definition.
+            The default value is <see cref="F:Microsoft.FeatureManagement.FeatureStatus.Conditional" />.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureDefinition.Allocation">
+            <summary>
+            Describes how variants should be allocated.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureDefinition.Variants">
+            <summary>
+            A list of variant definitions that specify a configuration to return when assigned.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureDefinition.Telemetry">
+            <summary>
+            Telemetry related configuration of the feature.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureFilterConfiguration">
+            <summary>
+            The configuration of a feature filter.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilterConfiguration.Name">
+            <summary>
+            The name of the feature filter.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilterConfiguration.Parameters">
+            <summary>
+            Configurable parameters that can change across instances of a feature filter.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureFilterEvaluationContext">
+            <summary>
+            A context used by <see cref="T:Microsoft.FeatureManagement.IFeatureFilter" /> to gain insight into what feature is being evaluated and the parameters needed to check whether the feature should be enabled.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilterEvaluationContext.FeatureName">
+            <summary>
+            The name of the feature being evaluated.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilterEvaluationContext.Parameters">
+            <summary>
+            The settings provided for the feature filter to use when evaluating whether the feature should be enabled.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilterEvaluationContext.Settings">
+            <summary>
+            A settings object, if any, that has been pre-bound from <see cref="P:Microsoft.FeatureManagement.FeatureFilterEvaluationContext.Parameters" />.
+            The settings are made available for <see cref="T:Microsoft.FeatureManagement.IFeatureFilter" />s that implement <see cref="T:Microsoft.FeatureManagement.IFilterParametersBinder" />.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilterEvaluationContext.CancellationToken">
+            <summary>
+            A cancellation token that can be used to request cancellation of the feature evaluation operation.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureFilters.PercentageFilter">
+            <summary>
+            A feature filter that can be used to activate a feature based on a random percentage.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.PercentageFilter.#ctor(Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Creates a percentage based feature filter.
+            </summary>
+            <param name="loggerFactory">A logger factory for creating loggers.</param>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.PercentageFilter.BindParameters(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Binds configuration representing filter parameters to <see cref="T:Microsoft.FeatureManagement.FeatureFilters.PercentageFilterSettings" />.
+            </summary>
+            <param name="filterParameters">The configuration representing filter parameters that should be bound to <see cref="T:Microsoft.FeatureManagement.FeatureFilters.PercentageFilterSettings" />.</param>
+            <returns><see cref="T:Microsoft.FeatureManagement.FeatureFilters.PercentageFilterSettings" /> that can later be used in feature evaluation.</returns>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.PercentageFilter.EvaluateAsync(Microsoft.FeatureManagement.FeatureFilterEvaluationContext)">
+            <summary>
+            Performs a percentage based evaluation to determine whether a feature is enabled.
+            </summary>
+            <param name="context">The feature evaluation context.</param>
+            <returns>True if the feature is enabled, false otherwise.</returns>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureFilters.PercentageFilterSettings">
+            <summary>
+            The settings that are used to configure the <see cref="T:Microsoft.FeatureManagement.FeatureFilters.PercentageFilter" /> feature filter.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.PercentageFilterSettings.Value">
+            <summary>
+            A value between 0 and 100 specifying the chance that a feature configured to use the <see cref="T:Microsoft.FeatureManagement.FeatureFilters.PercentageFilter" /> should be enabled.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureFilters.Recurrence">
+            <summary>
+            A recurrence definition describing how time window recurs
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.Recurrence.Pattern">
+            <summary>
+            The recurrence pattern specifying how often the time window repeats
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.Recurrence.Range">
+            <summary>
+            The recurrence range specifying how long the recurrence pattern repeats
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.RecurrenceEvaluator.IsMatch(System.DateTimeOffset,Microsoft.FeatureManagement.FeatureFilters.TimeWindowFilterSettings)">
+            <summary>
+            Checks if a provided timestamp is within any recurring time window specified by the Recurrence section in the time window filter settings.
+            If the time window filter has an invalid recurrence setting, an exception will be thrown.
+            <param name="time">A datetime.</param>
+            <param name="settings">The settings of time window filter.</param>
+            <returns>True if the timestamp is within any recurring time window, false otherwise.</returns>
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.RecurrenceEvaluator.CalculateClosestStart(System.DateTimeOffset,Microsoft.FeatureManagement.FeatureFilters.TimeWindowFilterSettings)">
+            <summary>
+            Calculates the start time of the closest active time window.
+            <param name="time">A datetime.</param>
+            <param name="settings">The settings of time window filter.</param>
+            <returns>The start time of the closest active time window or null if the recurrence range surpasses its end.</returns>
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.RecurrenceEvaluator.CalculateSurroundingOccurrences(System.DateTimeOffset,Microsoft.FeatureManagement.FeatureFilters.TimeWindowFilterSettings,System.Nullable{System.DateTimeOffset}@,System.Nullable{System.DateTimeOffset}@)">
+            <summary>
+            Calculates the closest previous recurrence occurrence (if any) before the given time and the next occurrence (if any) after it.
+            <param name="time">A datetime.</param>
+            <param name="settings">The settings of time window filter.</param>
+            <param name="prevOccurrence">The closest previous occurrence. Note that prev occurrence can be null even if the time is past the start date, because the recurrence range may have surpassed its end.</param>
+            <param name="nextOccurrence">The next occurrence. Note that next occurrence can be null even if the prev occurrence is not null, because the recurrence range may have reached its end.</param>
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.RecurrenceEvaluator.TryFindPreviousOccurrence(System.DateTimeOffset,Microsoft.FeatureManagement.FeatureFilters.TimeWindowFilterSettings,System.DateTimeOffset@,System.Int32@)">
+            <summary>
+            Finds the closest previous recurrence occurrence before the given time according to the recurrence pattern. 
+            The given time should be later than the recurrence start. 
+            A return value indicates whether any previous occurrence can be found.
+            <param name="time">A datetime.</param>
+            <param name="settings">The settings of time window filter.</param>
+            <param name="previousOccurrence">The closest previous occurrence.</param>
+            <param name="numberOfOccurrences">The number of occurrences between the time and the recurrence start.</param>
+            <returns>True if the closest previous occurrence is within the recurrence range, false otherwise.</returns>
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.RecurrenceEvaluator.FindDailyPreviousOccurrence(System.DateTimeOffset,Microsoft.FeatureManagement.FeatureFilters.TimeWindowFilterSettings,System.DateTimeOffset@,System.Int32@)">
+            <summary>
+            Finds the closest previous recurrence occurrence before the given time according to the "Daily" recurrence pattern. 
+            The given time should be later than the recurrence start.
+            <param name="time">A datetime.</param>
+            <param name="settings">The settings of time window filter.</param>
+            <param name="previousOccurrence">The closest previous occurrence.</param>
+            <param name="numberOfOccurrences">The number of occurrences between the time and the recurrence start.</param>
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.RecurrenceEvaluator.FindWeeklyPreviousOccurrence(System.DateTimeOffset,Microsoft.FeatureManagement.FeatureFilters.TimeWindowFilterSettings,System.DateTimeOffset@,System.Int32@)">
+            <summary>
+            Finds the closest previous recurrence occurrence before the given time according to the "Weekly" recurrence pattern. 
+            The given time should be later than the recurrence start.
+            <param name="time">A datetime.</param>
+            <param name="settings">The settings of time window filter.</param>
+            <param name="previousOccurrence">The closest previous occurrence.</param>
+            <param name="numberOfOccurrences">The number of occurrences between the time and the recurrence start.</param>
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.RecurrenceEvaluator.CalculateWeeklyNextOccurrence(System.DateTimeOffset,Microsoft.FeatureManagement.FeatureFilters.TimeWindowFilterSettings)">
+            <summary>
+            Finds the next recurrence occurrence after the provided previous occurrence according to the "Weekly" recurrence pattern.
+            <param name="previousOccurrence">The previous occurrence.</param>
+            <param name="settings">The settings of time window filter.</param>
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.RecurrenceEvaluator.CalculateWeeklyDayOffset(System.DayOfWeek,System.DayOfWeek)">
+            <summary>
+            Calculates the offset in days between two given days of the week.
+            <param name="day1">A day of week.</param>
+            <param name="day2">A day of week.</param>
+            <returns>The number of days to be added to day2 to reach day1</returns>
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.RecurrenceEvaluator.SortDaysOfWeek(System.Collections.Generic.IEnumerable{System.DayOfWeek},System.DayOfWeek)">
+            <summary>
+            Sorts a collection of days of week based on their offsets from a specified first day of week.
+            <param name="daysOfWeek">A collection of days of week.</param>
+            <param name="firstDayOfWeek">The first day of week.</param>
+            <returns>The sorted days of week.</returns>
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureFilters.RecurrencePattern">
+            <summary>
+            The recurrence pattern describes the frequency by which the time window repeats.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.RecurrencePattern.Type">
+            <summary>
+            The recurrence pattern type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.RecurrencePattern.Interval">
+            <summary>
+            The number of units between occurrences, where units can be in days or weeks, depending on the pattern type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.RecurrencePattern.DaysOfWeek">
+            <summary>
+            The days of the week on which the time window occurs. This property is only applicable for weekly pattern.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.RecurrencePattern.FirstDayOfWeek">
+            <summary>
+            The first day of the week. This property is only applicable for weekly pattern.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureFilters.RecurrencePatternType">
+            <summary>
+            The type of <see cref="T:Microsoft.FeatureManagement.FeatureFilters.RecurrencePattern" /> specifying the frequency by which the time window repeats.
+            </summary>
+        </member>
+        <member name="F:Microsoft.FeatureManagement.FeatureFilters.RecurrencePatternType.Daily">
+            <summary>
+            The pattern where the time window will repeat based on the number of days specified by interval between occurrences.
+            </summary>
+        </member>
+        <member name="F:Microsoft.FeatureManagement.FeatureFilters.RecurrencePatternType.Weekly">
+            <summary>
+            The pattern where the time window will repeat on the same day or days of the week, based on the number of weeks between each set of occurrences.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureFilters.RecurrenceRange">
+            <summary>
+            The recurrence range describes a date range over which the time window repeats.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.RecurrenceRange.Type">
+            <summary>
+            The recurrence range type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.RecurrenceRange.EndDate">
+            <summary>
+            The date to stop applying the recurrence pattern.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.RecurrenceRange.NumberOfOccurrences">
+            <summary>
+            The number of times to repeat the time window.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureFilters.RecurrenceRangeType">
+            <summary>
+            The type of <see cref="T:Microsoft.FeatureManagement.FeatureFilters.RecurrenceRange" /> specifying the date range over which the time window repeats.
+            </summary>
+        </member>
+        <member name="F:Microsoft.FeatureManagement.FeatureFilters.RecurrenceRangeType.NoEnd">
+            <summary>
+            The time window repeats on all the days that fit the corresponding <see cref="T:Microsoft.FeatureManagement.FeatureFilters.RecurrencePattern" />.
+            </summary>
+        </member>
+        <member name="F:Microsoft.FeatureManagement.FeatureFilters.RecurrenceRangeType.EndDate">
+            <summary>
+            The time window repeats on all the days that fit the corresponding <see cref="T:Microsoft.FeatureManagement.FeatureFilters.RecurrencePattern" /> before or on the end date specified in EndDate of <see cref="T:Microsoft.FeatureManagement.FeatureFilters.RecurrenceRange" />.
+            </summary>
+        </member>
+        <member name="F:Microsoft.FeatureManagement.FeatureFilters.RecurrenceRangeType.Numbered">
+            <summary>
+            The time window repeats for the number specified in the NumberOfOccurrences of <see cref="T:Microsoft.FeatureManagement.FeatureFilters.RecurrenceRange" /> that fit based on the <see cref="T:Microsoft.FeatureManagement.FeatureFilters.RecurrencePattern" />.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.RecurrenceValidator.TryValidateSettings(Microsoft.FeatureManagement.FeatureFilters.TimeWindowFilterSettings,System.String@,System.String@)">
+            <summary>
+            Performs validation of time window settings.
+            <param name="settings">The settings of time window filter.</param>
+            <param name="paramName">The name of the invalid setting, if any.</param>
+            <param name="reason">The reason that the setting is invalid.</param>
+            <returns>True if the provided settings are valid. False if the provided settings are invalid.</returns>
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.RecurrenceValidator.IsDurationCompliantWithDaysOfWeek(System.TimeSpan,System.Int32,System.Collections.Generic.IEnumerable{System.DayOfWeek},System.DayOfWeek)">
+            <summary>
+            Checks whether the duration is shorter than the minimum gap between recurrence of days of week.
+            </summary>
+            <param name="duration">The time span of the duration.</param>
+            <param name="interval">The recurrence interval.</param>
+            <param name="daysOfWeek">The days of the week when the recurrence will occur.</param>
+            <param name="firstDayOfWeek">The first day of the week.</param>
+            <returns>True if the duration is compliant with days of week, false otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.RecurrenceValidator.CalculateWeeklyDayOffset(System.DayOfWeek,System.DayOfWeek)">
+            <summary>
+            Calculates the offset in days between two given days of the week.
+            <param name="day1">A day of week.</param>
+            <param name="day2">A day of week.</param>
+            <returns>The number of days to be added to day2 to reach day1</returns>
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.RecurrenceValidator.SortDaysOfWeek(System.Collections.Generic.IEnumerable{System.DayOfWeek},System.DayOfWeek)">
+            <summary>
+            Sorts a collection of days of week based on their offsets from a specified first day of week.
+            <param name="daysOfWeek">A collection of days of week.</param>
+            <param name="firstDayOfWeek">The first day of week.</param>
+            <returns>The sorted days of week.</returns>
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureFilters.TimeWindowFilter">
+            <summary>
+            A feature filter that can be used to activate a feature based on a time window.
+            The time window can be configured to recur periodically.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.TimeWindowFilter.#ctor(Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Creates a time window based feature filter.
+            </summary>
+            <param name="loggerFactory">A logger factory for creating loggers.</param>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.TimeWindowFilter.Cache">
+            <summary>
+            The application memory cache to store the start time of the closest active time window. By caching this time, the time window can minimize redundant computations when evaluating recurrence.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.TimeWindowFilter.SystemClock">
+            <summary>
+            This property allows the time window filter in our test suite to use simulated time.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.TimeWindowFilter.BindParameters(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Binds configuration representing filter parameters to <see cref="T:Microsoft.FeatureManagement.FeatureFilters.TimeWindowFilterSettings" />.
+            </summary>
+            <param name="filterParameters">The configuration representing filter parameters that should be bound to <see cref="T:Microsoft.FeatureManagement.FeatureFilters.TimeWindowFilterSettings" />.</param>
+            <returns><see cref="T:Microsoft.FeatureManagement.FeatureFilters.TimeWindowFilterSettings" /> that can later be used in feature evaluation.</returns>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.TimeWindowFilter.EvaluateAsync(Microsoft.FeatureManagement.FeatureFilterEvaluationContext)">
+            <summary>
+            Evaluates whether a feature is enabled based on the <see cref="T:Microsoft.FeatureManagement.FeatureFilters.TimeWindowFilterSettings" /> specified in the configuration.
+            </summary>
+            <param name="context">The feature evaluation context.</param>
+            <returns>True if the feature is enabled, false otherwise.</returns>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureFilters.TimeWindowFilterSettings">
+            <summary>
+            The settings that are used to configure the <see cref="T:Microsoft.FeatureManagement.FeatureFilters.TimeWindowFilter" /> feature filter.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.TimeWindowFilterSettings.Start">
+            <summary>
+            An optional start time used to determine when a feature configured to use the <see cref="T:Microsoft.FeatureManagement.FeatureFilters.TimeWindowFilter" /> feature filter should be enabled.
+            If no start time is specified the time window is considered to have already started.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.TimeWindowFilterSettings.End">
+            <summary>
+            An optional end time used to determine when a feature configured to use the <see cref="T:Microsoft.FeatureManagement.FeatureFilters.TimeWindowFilter" /> feature filter should be enabled.
+            If no end time is specified the time window is considered to never end.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.TimeWindowFilterSettings.Recurrence">
+            <summary>
+            Add-on recurrence rule allows the time window defined by Start and End to recur.
+            The rule specifies both how often the time window repeats and for how long.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureFilters.Audience">
+            <summary>
+            An audience definition describing a set of users.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.Audience.Users">
+            <summary>
+            Includes users in the audience by name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.Audience.Groups">
+            <summary>
+            Includes users in the audience based off a group rollout.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.Audience.DefaultRolloutPercentage">
+            <summary>
+            Includes users in the audience based off a percentage of the total possible audience. Valid values range from 0 to 100 inclusive.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.Audience.Exclusion">
+            <summary>
+            Excludes a basic audience from this audience.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureFilters.BasicAudience">
+            <summary>
+            A basic audience definition describing a set of users and groups.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.BasicAudience.Users">
+            <summary>
+            Includes users in the audience by name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.BasicAudience.Groups">
+            <summary>
+            Includes users in the audience by group name.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureFilters.ContextualTargetingFilter">
+            <summary>
+            A feature filter that can be used to activate features for targeted audiences.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.ContextualTargetingFilter.#ctor(Microsoft.Extensions.Options.IOptions{Microsoft.FeatureManagement.FeatureFilters.TargetingEvaluationOptions},Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Creates a targeting contextual feature filter.
+            </summary>
+            <param name="options">Options controlling the behavior of the targeting evaluation performed by the filter.</param>
+            <param name="loggerFactory">A logger factory for creating loggers.</param>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.ContextualTargetingFilter.BindParameters(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Binds configuration representing filter parameters to <see cref="T:Microsoft.FeatureManagement.FeatureFilters.TargetingFilterSettings" />.
+            </summary>
+            <param name="filterParameters">The configuration representing filter parameters that should be bound to <see cref="T:Microsoft.FeatureManagement.FeatureFilters.TargetingFilterSettings" />.</param>
+            <returns><see cref="T:Microsoft.FeatureManagement.FeatureFilters.TargetingFilterSettings" /> that can later be used in targeting.</returns>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.ContextualTargetingFilter.EvaluateAsync(Microsoft.FeatureManagement.FeatureFilterEvaluationContext,Microsoft.FeatureManagement.FeatureFilters.ITargetingContext)">
+            <summary>
+            Performs a targeting evaluation using the provided <see cref="T:Microsoft.FeatureManagement.FeatureFilters.TargetingContext" /> to determine if a feature should be enabled.
+            </summary>
+            <param name="context">The feature evaluation context.</param>
+            <param name="targetingContext">The targeting context to use during targeting evaluation.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if either <paramref name="context" /> or <paramref name="targetingContext" /> is null.</exception>
+            <returns>True if the feature is enabled, false otherwise.</returns>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureFilters.GroupRollout">
+            <summary>
+            Defines a percentage of a group to be included in a rollout.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.GroupRollout.Name">
+            <summary>
+            The name of the group.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.GroupRollout.RolloutPercentage">
+            <summary>
+            The percentage of the group that should be considered part of the rollout. Valid values range from 0 to 100 inclusive.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureFilters.ITargetingContext">
+            <summary>
+            Contextual information that is required to perform a targeting evaluation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.ITargetingContext.UserId">
+            <summary>
+            The user id that should be considered when evaluating if the context is being targeted.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.ITargetingContext.Groups">
+            <summary>
+            The groups that should be considered when evaluating if the context is being targeted.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureFilters.ITargetingContextAccessor">
+            <summary>
+            Provides access to the current targeting context.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.ITargetingContextAccessor.GetContextAsync">
+            <summary>
+            Retrieves the current targeting context.
+            </summary>
+            <returns>The current targeting context.</returns>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureFilters.TargetingContext">
+            <summary>
+            Contextual information that is required to perform a targeting evaluation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.TargetingContext.UserId">
+            <summary>
+            The user id that should be considered when evaluating if the context is being targeted.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.TargetingContext.Groups">
+            <summary>
+            The groups that should be considered when evaluating if the context is being targeted.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureFilters.TargetingEvaluationOptions">
+            <summary>
+            Options that apply to all uses of a target filter inside a service collection.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.TargetingEvaluationOptions.IgnoreCase">
+            <summary>
+            Used to ignore case when comparing user id and group names during targeting evaluation.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureFilters.TargetingFilter">
+            <summary>
+            A feature filter that can be used to activate features for targeted audiences.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.TargetingFilter.#ctor(Microsoft.FeatureManagement.FeatureFilters.ITargetingContextAccessor,Microsoft.Extensions.Options.IOptions{Microsoft.FeatureManagement.FeatureFilters.TargetingEvaluationOptions},Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Creates a targeting feature filter.
+            </summary>
+            <param name="options">Options controlling the behavior of the targeting evaluation performed by the filter.</param>
+            <param name="contextAccessor">An accessor used to acquire the targeting context for use in feature evaluation.</param>
+            <param name="loggerFactory">A logger factory for creating loggers.</param>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.TargetingFilter.BindParameters(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Binds configuration representing filter parameters to <see cref="T:Microsoft.FeatureManagement.FeatureFilters.TargetingFilterSettings" />.
+            </summary>
+            <param name="filterParameters">The configuration representing filter parameters that should be bound to <see cref="T:Microsoft.FeatureManagement.FeatureFilters.TargetingFilterSettings" />.</param>
+            <returns><see cref="T:Microsoft.FeatureManagement.FeatureFilters.TargetingFilterSettings" /> that can later be used in targeting.</returns>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureFilters.TargetingFilter.EvaluateAsync(Microsoft.FeatureManagement.FeatureFilterEvaluationContext)">
+            <summary>
+            Performs a targeting evaluation using the current <see cref="T:Microsoft.FeatureManagement.FeatureFilters.TargetingContext" /> to determine if a feature should be enabled.
+            </summary>
+            <param name="context">The feature evaluation context.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="context" /> is null.</exception>
+            <returns>True if the feature is enabled, false otherwise.</returns>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureFilters.TargetingFilterSettings">
+            <summary>
+            The settings that are used to configure the <see cref="T:Microsoft.FeatureManagement.FeatureFilters.TargetingFilter" /> feature filter.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureFilters.TargetingFilterSettings.Audience">
+            <summary>
+            The audience that a feature configured to use the <see cref="T:Microsoft.FeatureManagement.FeatureFilters.TargetingFilter" /> should be enabled for.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureManagementBuilder">
+            <summary>
+            Provides a way to customize feature management.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureManagementBuilderExtensions">
+            <summary>
+            Extensions used to add feature management functionality.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureManagementBuilderExtensions.WithTargeting``1(Microsoft.FeatureManagement.IFeatureManagementBuilder)">
+            <summary>
+            Adds an <see cref="T:Microsoft.FeatureManagement.FeatureFilters.ITargetingContextAccessor" /> to be used for targeting and registers the targeting filter to the feature management system.
+            </summary>
+            <param name="builder">The <see cref="T:Microsoft.FeatureManagement.IFeatureManagementBuilder" /> used to customize feature management functionality.</param>
+            <returns>A <see cref="T:Microsoft.FeatureManagement.IFeatureManagementBuilder" /> that can be used to customize feature management functionality.</returns>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureManagementBuilderExtensions.WithVariantService``1(Microsoft.FeatureManagement.IFeatureManagementBuilder,System.String)">
+            <summary>
+            Adds a <see cref="T:Microsoft.FeatureManagement.VariantServiceProvider`1" /> to the feature management system.
+            </summary>
+            <param name="builder">The <see cref="T:Microsoft.FeatureManagement.IFeatureManagementBuilder" /> used to customize feature management functionality.</param>
+            <param name="featureName">The feature flag that should be used to determine which variant of the service should be used. The <see cref="T:Microsoft.FeatureManagement.VariantServiceProvider`1" /> will return different implementations of TService according to the assigned variant.</param>
+            <returns>A <see cref="T:Microsoft.FeatureManagement.IFeatureManagementBuilder" /> that can be used to customize feature management functionality.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if feature name parameter is null.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown if a variant service of the type has already been added.</exception>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureManagementError">
+            <summary>
+            An error that can occur during feature management.
+            </summary>
+        </member>
+        <member name="F:Microsoft.FeatureManagement.FeatureManagementError.MissingFeatureFilter">
+            <summary>
+            A feature filter that was listed for feature evaluation was not found.
+            </summary>
+        </member>
+        <member name="F:Microsoft.FeatureManagement.FeatureManagementError.AmbiguousFeatureFilter">
+            <summary>
+            A feature filter configured for the feature being evaluated is an ambiguous reference to multiple registered feature filters.
+            </summary>
+        </member>
+        <member name="F:Microsoft.FeatureManagement.FeatureManagementError.MissingFeature">
+            <summary>
+            A feature that was requested for evaluation was not found.
+            </summary>
+        </member>
+        <member name="F:Microsoft.FeatureManagement.FeatureManagementError.Conflict">
+            <summary>
+            There was a conflict in the feature management system.
+            </summary>
+        </member>
+        <member name="F:Microsoft.FeatureManagement.FeatureManagementError.InvalidConfigurationSetting">
+            <summary>
+            The given configuration setting was invalid.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureManagementException">
+            <summary>
+            Represents errors that occur during feature management.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureManagementException.#ctor(Microsoft.FeatureManagement.FeatureManagementError,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.FeatureManagement.FeatureManagementException" /> class.
+            </summary>
+            <param name="errorType">The feature management error that the exception represents.</param>
+            <param name="message">Error message for the exception.</param>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureManagementException.Error">
+            <summary>
+            The feature management error that the exception represents.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureManagementOptions">
+            <summary>
+            Options that control the behavior of the feature management system.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureManagementOptions.IgnoreMissingFeatureFilters">
+            <summary>
+            Controls the behavior of feature evaluation when dependent feature filters are missing.
+            If missing feature filters are not ignored an exception will be thrown when attempting to evaluate a feature that depends on a missing feature filter.
+            This option is invalid when used in combination with <see cref="F:Microsoft.FeatureManagement.RequirementType.All" />
+            The default value is false.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureManagementOptions.IgnoreMissingFeatures">
+            <summary>
+            Controls the behavior of feature evaluation when the target feature is missing.
+            If missing features are not ignored an exception will be thrown when attempting to evaluate them.
+            The default value is true.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureManager">
+            <summary>
+            Used to evaluate the enabled state of a feature and/or get the assigned variant of a feature, if any.
+            </summary>
+        </member>
+        <member name="F:Microsoft.FeatureManagement.FeatureManager.ActivitySource">
+            <summary>
+            The activity source for feature management.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureManager.#ctor(Microsoft.FeatureManagement.IFeatureDefinitionProvider,Microsoft.FeatureManagement.FeatureManagementOptions)">
+            <summary>
+            Creates a feature manager.
+            </summary>
+            <param name="featureDefinitionProvider">The provider of feature flag definitions.</param>
+            <param name="options">Options controlling the behavior of the feature manager.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="featureDefinitionProvider" /> is null.</exception>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureManager.FeatureFilters">
+            <summary>
+            The collection of feature filter metadata.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Thrown if it is set to null.</exception>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureManager.SessionManagers">
+            <summary>
+            The collection of session managers.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Thrown if it is set to null.</exception>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureManager.Cache">
+            <summary>
+            The application memory cache to store feature filter settings.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureManager.Logger">
+            <summary>
+            The logger for the feature manager.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureManager.TargetingContextAccessor">
+            <summary>
+            The targeting context accessor for feature variant allocation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FeatureManager.AssignerOptions">
+            <summary>
+            Options controlling the targeting behavior for feature variant allocation.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Thrown if it is set to null.</exception>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureManager.IsEnabledAsync(System.String)">
+            <summary>
+            Checks whether a given feature is enabled.
+            </summary>
+            <param name="feature">The name of the feature to check.</param>
+            <returns>True if the feature is enabled, otherwise false.</returns>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureManager.IsEnabledAsync``1(System.String,``0)">
+            <summary>
+            Checks whether a given feature is enabled.
+            </summary>
+            <param name="feature">The name of the feature to check.</param>
+            <param name="appContext">A context that provides information to evaluate whether a feature should be on or off.</param>
+            <returns>True if the feature is enabled, otherwise false.</returns>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureManager.IsEnabledAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Checks whether a given feature is enabled.
+            </summary>
+            <param name="feature">The name of the feature to check.</param>
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>True if the feature is enabled, otherwise false.</returns>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureManager.IsEnabledAsync``1(System.String,``0,System.Threading.CancellationToken)">
+            <summary>
+            Checks whether a given feature is enabled.
+            </summary>
+            <param name="feature">The name of the feature to check.</param>
+            <param name="appContext">A context that provides information to evaluate whether a feature should be on or off.</param>
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>True if the feature is enabled, otherwise false.</returns>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureManager.GetFeatureNamesAsync">
+            <summary>
+            Retrieves a list of feature names registered in the feature manager.
+            </summary>
+            <returns>An enumerator which provides asynchronous iteration over the feature names registered in the feature manager.</returns>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureManager.GetFeatureNamesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Retrieves a list of feature names registered in the feature manager.
+            </summary>
+            <returns>An enumerator which provides asynchronous iteration over the feature names registered in the feature manager.</returns>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureManager.GetVariantAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets the assigned variant for a specific feature.
+            </summary>
+            <param name="feature">The name of the feature to evaluate.</param>
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>A variant assigned to the user based on the feature's configured allocation.</returns>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FeatureManager.GetVariantAsync(System.String,Microsoft.FeatureManagement.FeatureFilters.ITargetingContext,System.Threading.CancellationToken)">
+            <summary>
+            Gets the assigned variant for a specific feature.
+            </summary>
+            <param name="feature">The name of the feature to evaluate.</param>
+            <param name="context">A context that provides information to evaluate which variant will be assigned to the user.</param>
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>A variant assigned to the user based on the feature's configured allocation.</returns>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureManagerSnapshot">
+            <summary>
+            Provides a snapshot of feature state to ensure consistency across a given request.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FeatureStatus">
+            <summary>
+            Describes how a feature's state will be evaluated.
+            </summary>
+        </member>
+        <member name="F:Microsoft.FeatureManagement.FeatureStatus.Conditional">
+            <summary>
+            The state of the feature is conditional upon the feature evaluation pipeline.
+            </summary>
+        </member>
+        <member name="F:Microsoft.FeatureManagement.FeatureStatus.Disabled">
+            <summary>
+            The state of the feature is always disabled.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.FilterAliasAttribute">
+            <summary>
+            Allows the name of an <see cref="T:Microsoft.FeatureManagement.IFeatureFilter" /> to be customized to relate to the name specified in configuration.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.FilterAliasAttribute.#ctor(System.String)">
+            <summary>
+            Creates a filter alias using the provided alias.
+            </summary>
+            <param name="alias">The alias of the feature filter.</param>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.FilterAliasAttribute.Alias">
+            <summary>
+            The name that will be used to match feature filters specified in the configuration.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.IContextualFeatureFilter`1">
+            <summary>
+            A filter that can be used to determine whether some criteria is met to enable a feature. A feature filter is free to use any criteria available, such as process state or request content.
+            Feature filters can be registered for a given feature and if any feature filter evaluates to true, that feature will be considered enabled.
+            A contextual feature filter can take advantage of contextual data passed in from callers of the feature management system.
+            A contextual feature filter will only be executed if a context that is assignable from TContext is available.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.IContextualFeatureFilter`1.EvaluateAsync(Microsoft.FeatureManagement.FeatureFilterEvaluationContext,`0)">
+            <summary>
+            Evaluates the feature filter to see if the filter's criteria for being enabled has been satisfied.
+            </summary>
+            <param name="featureFilterContext">A feature filter evaluation context that contains information that may be needed to evaluate the filter. This context includes configuration, if any, for this filter for the feature being evaluated.</param>
+            <param name="appContext">A context defined by the application that is passed in to the feature management system to provide contextual information for evaluating a feature's state.</param>
+            <returns>True if the filter's criteria has been met, false otherwise.</returns>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.IFeatureDefinitionProvider">
+            <summary>
+            A provider of feature definitions.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.IFeatureDefinitionProvider.GetFeatureDefinitionAsync(System.String)">
+            <summary>
+            Retrieves the definition for a given feature.
+            </summary>
+            <param name="featureName">The name of the feature to retrieve the definition for.</param>
+            <returns>The feature's definition.</returns>	
+        </member>
+        <member name="M:Microsoft.FeatureManagement.IFeatureDefinitionProvider.GetAllFeatureDefinitionsAsync">
+            <summary>
+            Retrieves definitions for all features.
+            </summary>
+            <returns>An enumerator which provides asynchronous iteration over feature definitions.</returns>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.IFeatureDefinitionProviderCacheable">
+            <summary>
+            An interface that marks this provider's parameters are cacheable. This was implemented to allow the provider in our test suite to be cacheable.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.IFeatureFilter">
+            <summary>
+            A filter that can be used to determine whether some criteria is met to enable a feature. A feature filter is free to use any criteria available, such as process state or request content. Feature filters can be registered for a given feature and if any feature filter evaluates to true, that feature will be considered enabled.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.IFeatureFilter.EvaluateAsync(Microsoft.FeatureManagement.FeatureFilterEvaluationContext)">
+            <summary>
+            Evaluates the feature filter to see if the filter's criteria for being enabled has been satisfied.
+            </summary>
+            <param name="context">A feature filter evaluation context that contains information that may be needed to evaluate the filter. This context includes configuration, if any, for this filter for the feature being evaluated.</param>
+            <returns>True if the filter's criteria has been met, false otherwise.</returns>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.IFeatureFilterMetadata">
+            <summary>
+            Marker interface for feature filters used to evaluate the state of a feature
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.IFeatureManagementBuilder">
+            <summary>
+            Provides a way to customize feature management functionality.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.IFeatureManagementBuilder.Services">
+            <summary>
+            The application services.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.IFeatureManagementBuilder.AddFeatureFilter``1">
+            <summary>
+            Adds a given feature filter to the list of feature filters that will be available to enable features during runtime.
+            Possible feature filter metadata types include <see cref="T:Microsoft.FeatureManagement.IFeatureFilter" /> and <see cref="T:Microsoft.FeatureManagement.IContextualFeatureFilter`1" />
+            Only one feature filter interface can be implemented by a single type.
+            </summary>
+            <typeparam name="T">The feature filter type.</typeparam>
+            <returns>The feature management builder.</returns>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.IFeatureManagementBuilder.AddSessionManager``1">
+            <summary>
+            Adds an <see cref="T:Microsoft.FeatureManagement.ISessionManager" /> to be used for storing feature state in a session.
+            </summary>
+            <typeparam name="T">An implementation of <see cref="T:Microsoft.FeatureManagement.ISessionManager" /></typeparam>
+            <returns>The feature management builder.</returns>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.IFeatureManager">
+            <summary>
+            Used to evaluate whether a feature is enabled or disabled.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.IFeatureManager.GetFeatureNamesAsync">
+            <summary>
+            Retrieves a list of feature names registered in the feature manager.
+            </summary>
+            <returns>An enumerator which provides asynchronous iteration over the feature names registered in the feature manager.</returns>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.IFeatureManager.IsEnabledAsync(System.String)">
+            <summary>
+            Checks whether a given feature is enabled.
+            </summary>
+            <param name="feature">The name of the feature to check.</param>
+            <returns>True if the feature is enabled, otherwise false.</returns>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.IFeatureManager.IsEnabledAsync``1(System.String,``0)">
+            <summary>
+            Checks whether a given feature is enabled.
+            </summary>
+            <param name="feature">The name of the feature to check.</param>
+            <param name="context">A context that provides information to evaluate whether a feature should be on or off.</param>
+            <returns>True if the feature is enabled, otherwise false.</returns>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.IFeatureManagerSnapshot">
+            <summary>
+            Provides a snapshot of feature state to ensure consistency across a given request.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.IFilterParametersBinder">
+            <summary>
+            An interface used by the feature management system to pre-bind feature filter parameters to a settings type.
+            <see cref="T:Microsoft.FeatureManagement.IFeatureFilter" />s can implement this interface to take advantage of caching of settings by the feature management system.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.IFilterParametersBinder.BindParameters(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Binds a set of feature filter parameters to a settings object.
+            </summary>
+            <param name="parameters">The configuration representing filter parameters to bind to a settings object</param>
+            <returns>A settings object that is understood by the implementer of <see cref="T:Microsoft.FeatureManagement.IFilterParametersBinder" />.</returns>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.ISessionManager">
+            <summary>
+            Used to store feature state across a session. The implementor is free to decide what constitutes a session.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.ISessionManager.SetAsync(System.String,System.Boolean)">
+            <summary>
+            Set the state of a feature to be used for a session.
+            </summary>
+            <param name="featureName">The name of the feature.</param>
+            <param name="enabled">The state of the feature.</param>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.ISessionManager.GetAsync(System.String)">
+            <summary>
+            Queries the session manager for the session's feature state, if any, for the given feature.
+            </summary>
+            <param name="featureName">The name of the feature.</param>
+            <returns>The state of the feature if it is present in the session, otherwise null.</returns>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.IVariantFeatureManager">
+            <summary>
+            Used to evaluate the enabled state of a feature and/or get the assigned variant of a feature, if any.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.IVariantFeatureManager.GetFeatureNamesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Retrieves a list of feature names registered in the feature manager.
+            </summary>
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>An enumerator which provides asynchronous iteration over the feature names registered in the feature manager.</returns>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.IVariantFeatureManager.IsEnabledAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Checks whether a given feature is enabled.
+            </summary>
+            <param name="feature">The name of the feature to check.</param>
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>True if the feature is enabled, otherwise false.</returns>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.IVariantFeatureManager.IsEnabledAsync``1(System.String,``0,System.Threading.CancellationToken)">
+            <summary>
+            Checks whether a given feature is enabled.
+            </summary>
+            <param name="feature">The name of the feature to check.</param>
+            <param name="context">A context that provides information to evaluate whether a feature should be on or off.</param>
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>True if the feature is enabled, otherwise false.</returns>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.IVariantFeatureManager.GetVariantAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets the assigned variant for a specific feature.
+            </summary>
+            <param name="feature">The name of the feature to evaluate.</param>
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>A variant assigned to the user based on the feature's configured allocation.</returns>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.IVariantFeatureManager.GetVariantAsync(System.String,Microsoft.FeatureManagement.FeatureFilters.ITargetingContext,System.Threading.CancellationToken)">
+            <summary>
+            Gets the assigned variant for a specific feature.
+            </summary>
+            <param name="feature">The name of the feature to evaluate.</param>
+            <param name="context">A context that provides information to evaluate which variant will be assigned to the user.</param>
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>A variant assigned to the user based on the feature's configured allocation.</returns>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.IVariantFeatureManagerSnapshot">
+            <summary>
+            Provides a snapshot of feature state to ensure consistency across a given request.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.IVariantServiceProvider`1">
+            <summary>
+            Used to get different implementation variants of TService.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.IVariantServiceProvider`1.GetServiceAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets an implementation variant of TService.
+            </summary>
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>An implementation of TService.</returns>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.MicrosoftFeatureManagementFields">
+            <summary>
+            See Microsoft Feature Management schema: https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureManagement.v2.0.0.schema.json
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.RequirementType">
+            <summary>
+            Describes whether any or all conditions in a set should be required to be true.
+            </summary>
+        </member>
+        <member name="F:Microsoft.FeatureManagement.RequirementType.Any">
+            <summary>
+            The set of conditions will be evaluated as true if any condition in the set is true.
+            </summary>
+        </member>
+        <member name="F:Microsoft.FeatureManagement.RequirementType.All">
+            <summary>
+            The set of conditions will be evaluated as true if all the conditions in the set are true.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.ServiceCollectionExtensions">
+            <summary>
+            Extensions used to add feature management functionality.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.ServiceCollectionExtensions.AddFeatureManagement(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds singleton <see cref="T:Microsoft.FeatureManagement.FeatureManager" /> and other required feature management services.
+            </summary>
+            <param name="services">The service collection that feature management services are added to.</param>
+            <returns>A <see cref="T:Microsoft.FeatureManagement.IFeatureManagementBuilder" /> that can be used to customize feature management functionality.</returns>
+            <exception cref="T:Microsoft.FeatureManagement.FeatureManagementException">Thrown if <see cref="T:Microsoft.FeatureManagement.FeatureManager" /> has been registered as scoped.</exception>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.ServiceCollectionExtensions.AddFeatureManagement(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Adds singleton <see cref="T:Microsoft.FeatureManagement.FeatureManager" /> and other required feature management services.
+            The registered <see cref="T:Microsoft.FeatureManagement.ConfigurationFeatureDefinitionProvider" /> will use the provided configuration and read from the top level if no "FeatureManagement" section can be found.
+            </summary>
+            <param name="services">The service collection that feature management services are added to.</param>
+            <param name="configuration">A specific <see cref="T:Microsoft.Extensions.Configuration.IConfiguration" /> instance that will be used to obtain feature settings.</param>
+            <returns>A <see cref="T:Microsoft.FeatureManagement.IFeatureManagementBuilder" /> that can be used to customize feature management functionality.</returns>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.ServiceCollectionExtensions.AddScopedFeatureManagement(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds scoped <see cref="T:Microsoft.FeatureManagement.FeatureManager" /> and other required feature management services.
+            </summary>
+            <param name="services">The service collection that feature management services are added to.</param>
+            <returns>A <see cref="T:Microsoft.FeatureManagement.IFeatureManagementBuilder" /> that can be used to customize feature management functionality.</returns>
+            <exception cref="T:Microsoft.FeatureManagement.FeatureManagementException">Thrown if <see cref="T:Microsoft.FeatureManagement.FeatureManager" /> has been registered as singleton.</exception>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.ServiceCollectionExtensions.AddScopedFeatureManagement(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Adds scoped <see cref="T:Microsoft.FeatureManagement.FeatureManager" /> and other required feature management services.
+            The registered <see cref="T:Microsoft.FeatureManagement.ConfigurationFeatureDefinitionProvider" /> will use the provided configuration and read from the top level if no "FeatureManagement" section can be found.
+            </summary>
+            <param name="services">The service collection that feature management services are added to.</param>
+            <param name="configuration">A specific <see cref="T:Microsoft.Extensions.Configuration.IConfiguration" /> instance that will be used to obtain feature settings.</param>
+            <returns>A <see cref="T:Microsoft.FeatureManagement.IFeatureManagementBuilder" /> that can be used to customize feature management functionality.</returns>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.StatusOverride">
+            <summary>
+            Provides the capability to override whether a feature is considered enabled or disabled when a variant is assigned.
+            </summary>
+        </member>
+        <member name="F:Microsoft.FeatureManagement.StatusOverride.None">
+            <summary>
+            Does not affect the feature state.
+            </summary>
+        </member>
+        <member name="F:Microsoft.FeatureManagement.StatusOverride.Enabled">
+            <summary>
+            The feature will be considered enabled.
+            </summary>
+        </member>
+        <member name="F:Microsoft.FeatureManagement.StatusOverride.Disabled">
+            <summary>
+            The feature will be considered disabled.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.Targeting.TargetingEvaluator.TryValidateSettings(Microsoft.FeatureManagement.FeatureFilters.TargetingFilterSettings,System.String@,System.String@)">
+            <summary>
+            Performs validation of targeting settings.
+            </summary>
+            <param name="targetingSettings">The settings to validate.</param>
+            <param name="paramName">The name of the invalid setting, if any.</param>
+            <param name="reason">The reason that the setting is invalid.</param>
+            <returns>True if the provided settings are valid. False if the provided settings are invalid.</returns>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.Targeting.TargetingEvaluator.IsTargeted(Microsoft.FeatureManagement.FeatureFilters.ITargetingContext,Microsoft.FeatureManagement.FeatureFilters.TargetingFilterSettings,System.Boolean,System.String)">
+            <summary>
+            Checks if a provided targeting context should be targeted given targeting settings.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.Targeting.TargetingEvaluator.IsTargeted(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean)">
+            <summary>
+            Determines if a targeting context is targeted by presence in a list of users
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.Targeting.TargetingEvaluator.IsTargeted(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Boolean)">
+            <summary>
+            Determines if targeting context is targeted by presence in a list of groups
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.Targeting.TargetingEvaluator.IsTargeted(Microsoft.FeatureManagement.FeatureFilters.ITargetingContext,System.Collections.Generic.IEnumerable{Microsoft.FeatureManagement.FeatureFilters.GroupRollout},System.Boolean,System.String)">
+            <summary>
+            Determine if a targeting context is targeted by presence in a group and its rollout percentage
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.Targeting.TargetingEvaluator.IsTargeted(Microsoft.FeatureManagement.FeatureFilters.ITargetingContext,System.Double,System.Boolean,System.String)">
+            <summary>
+            Determines if a targeting context is targeted by presence in a default rollout percentage.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.Targeting.TargetingEvaluator.IsTargeted(Microsoft.FeatureManagement.FeatureFilters.ITargetingContext,System.Double,System.Double,System.Boolean,System.String)">
+            <summary>
+            Determines if a given context id should be targeted based off the provided percentage range
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.Targeting.TargetingEvaluator.IsTargeted(System.String,System.Double,System.Double)">
+            <summary>
+            Determines if a given context id should be targeted based off the provided percentage
+            </summary>
+            <param name="contextId">A context identifier that determines what the percentage is applicable for</param>
+            <param name="from">The lower bound of the percentage for which the context identifier will be targeted</param>
+            <param name="to">The upper bound of the percentage for which the context identifier will be targeted</param>
+            <returns>A boolean representing if the context identifier should be targeted</returns>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.TelemetryConfiguration">
+            <summary>
+            Defines telemetry related configuration settings available for features.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.TelemetryConfiguration.Enabled">
+            <summary>
+            A flag to enable or disable sending <see cref="T:Microsoft.FeatureManagement.Telemetry.EvaluationEvent" /> events as <see cref="T:System.Diagnostics.ActivityEvent" />s.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.TelemetryConfiguration.Metadata">
+            <summary>
+            A container for metadata relevant to telemetry.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.Telemetry.EvaluationEvent">
+            <summary>
+            An event representing the evaluation of a feature.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.Telemetry.EvaluationEvent.FeatureDefinition">
+            <summary>
+            The definition of the feature that was evaluated.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.Telemetry.EvaluationEvent.TargetingContext">
+            <summary>
+            The targeting context used to evaluate the feature.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.Telemetry.EvaluationEvent.Enabled">
+            <summary>
+            The enabled state of the feature after evaluation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.Telemetry.EvaluationEvent.Variant">
+            <summary>
+            The variant given after evaluation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.Telemetry.EvaluationEvent.VariantAssignmentReason">
+            <summary>
+            The reason why the variant was assigned.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.Telemetry.FeatureEvaluationTelemetry.Publish(Microsoft.FeatureManagement.Telemetry.EvaluationEvent,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Handles an evaluation event by adding it as an activity event to the current Activity.
+            </summary>
+            <param name="evaluationEvent">The <see cref="T:Microsoft.FeatureManagement.Telemetry.EvaluationEvent" /> to publish as an <see cref="T:System.Diagnostics.ActivityEvent" /></param>
+            <param name="logger">Optional logger to log warnings to</param>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.Telemetry.VariantAssignmentReason">
+            <summary>
+            The reason the variant was assigned during the evaluation of a feature.
+            </summary>
+        </member>
+        <member name="F:Microsoft.FeatureManagement.Telemetry.VariantAssignmentReason.None">
+            <summary>
+            Variant allocation did not happen. No variant is assigned.
+            </summary>
+        </member>
+        <member name="F:Microsoft.FeatureManagement.Telemetry.VariantAssignmentReason.DefaultWhenDisabled">
+            <summary>
+            The default variant is assigned when a feature flag is disabled.
+            </summary>
+        </member>
+        <member name="F:Microsoft.FeatureManagement.Telemetry.VariantAssignmentReason.DefaultWhenEnabled">
+            <summary>
+            The default variant is assigned because of no applicable user/group/percentile allocation when a feature flag is enabled.
+            </summary>
+        </member>
+        <member name="F:Microsoft.FeatureManagement.Telemetry.VariantAssignmentReason.User">
+            <summary>
+            The variant is assigned because of the user allocation when a feature flag is enabled.
+            </summary>
+        </member>
+        <member name="F:Microsoft.FeatureManagement.Telemetry.VariantAssignmentReason.Group">
+            <summary>
+            The variant is assigned because of the group allocation when a feature flag is enabled.
+            </summary>
+        </member>
+        <member name="F:Microsoft.FeatureManagement.Telemetry.VariantAssignmentReason.Percentile">
+            <summary>
+            The variant is assigned because of the percentile allocation when a feature flag is enabled.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.Variant">
+            <summary>
+            A variant for a feature.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.Variant.Name">
+            <summary>
+            The name of the variant.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.Variant.Configuration">
+            <summary>
+            The configuration of the variant.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.VariantDefinition">
+            <summary>
+            The definition for a variant of a feature.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.VariantDefinition.Name">
+            <summary>
+            The name of the variant.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.VariantDefinition.ConfigurationValue">
+            <summary>
+            The value of the configuration for this variant of the feature.
+            </summary>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.VariantDefinition.StatusOverride">
+            <summary>
+            Overrides the state of the feature if this variant has been assigned.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.VariantFeatureManagerExtensions">
+            <summary>
+            Extensions for <see cref="T:Microsoft.FeatureManagement.IVariantFeatureManager" />.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.VariantFeatureManagerExtensions.GetVariantAsync(Microsoft.FeatureManagement.IVariantFeatureManager,System.String,Microsoft.FeatureManagement.FeatureFilters.TargetingContext,System.Threading.CancellationToken)">
+            <summary>
+            Gets the assigned variant for a specific feature.
+            </summary>
+            <param name="variantFeatureManager">The <see cref="T:Microsoft.FeatureManagement.IVariantFeatureManager" /> instance.</param>
+            <param name="feature">The name of the feature to evaluate.</param>
+            <param name="context">An instance of <see cref="T:Microsoft.FeatureManagement.FeatureFilters.TargetingContext" /> used to evaluate which variant the user will be assigned.</param>
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>A variant assigned to the user based on the feature's configured allocation.</returns>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.VariantServiceAliasAttribute">
+            <summary>
+            Allows the name of a variant service to be customized to relate to the variant name specified in configuration.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.VariantServiceAliasAttribute.#ctor(System.String)">
+            <summary>
+            Creates a variant service alias using the provided alias.
+            </summary>
+            <param name="alias">The alias of the variant service.</param>
+        </member>
+        <member name="P:Microsoft.FeatureManagement.VariantServiceAliasAttribute.Alias">
+            <summary>
+            The name that will be used to match variant name specified in the configuration.
+            </summary>
+        </member>
+        <member name="T:Microsoft.FeatureManagement.VariantServiceProvider`1">
+            <summary>
+            Used to get different implementations of TService depending on the assigned variant from a specific variant feature flag.
+            </summary>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.VariantServiceProvider`1.#ctor(System.String,Microsoft.FeatureManagement.IVariantFeatureManager,System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Creates a variant service provider.
+            </summary>
+            <param name="featureName">The feature flag that should be used to determine which variant of the service should be used.</param>
+            <param name="featureManager">The feature manager to get the assigned variant of the feature flag.</param>
+            <param name="services">Implementation variants of TService.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="featureName" /> is null.</exception>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="featureManager" /> is null.</exception>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="services" /> is null.</exception>
+        </member>
+        <member name="M:Microsoft.FeatureManagement.VariantServiceProvider`1.GetServiceAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets implementation of TService according to the assigned variant from the feature flag.
+            </summary>
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>An implementation matched with the assigned variant. If there is no matched implementation, it will return null.</returns>
+        </member>
+    </members>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><DigestValue>2pcBaOAxEFmJaRqnDS65kGHzqaVU0qVmFlr5n5J4bRo=</DigestValue></Reference></SignedInfo><SignatureValue>JGQxcaR2JDeMLN2pdEurbB2fK8awV7Xb9hDUASbceiLCwBftu+hQlg4zifp8JdjrSukemqH6KABqz5XKykafH+INIrOfR1oae3OFDUFqCxLUD1k1BfksU5TPdR+im4XCLbC7JJ6LIHTuviM1yiiQzXGLNzHwhdiFQjmIXhQ5tYsWntifQNB6+BbUkFCQKFbGqEiMRcQnYLODgVf5XbucNVRBTe1x1AjJ2KboDdUFk3TzrCcTiYyiB39JSsrcFVr1ibICKFE5uNGAFov6GVuP221thmNb1Tr6rVkTX8DsyYerkc4ptlFtaVXdzrf6KzVGNJaiBMPqnmEeXkpxhqkWwQ==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>tCg32mOdDA6rBBnZSMwxwXegqiDEUFlvQH9Sxww07hY3w7L52tJxLg0mCZjcszQddI6W4NJYb5E9QM319kyyE0l8EvA/pgcxgljDP8E6XIlgVf6W40ms286Cr0azaA1f7vaJjjNhGsMqOSSSXTZDNnfKs5ENG0bkXeB2q5hrp0qLsm/TWO3oFjeROZVHN2tgETswHR3WKTm6QjnXgGNj+V6rSZJO/WkTqc8NesAo3Up/KjMwgc0e67x9llZLxRyyMWUBE9coT2+pUZqYAUDZ84nR1djnMY3PMDYiA84Gw5JpceeED38O0cEIvKdX8uG8oQa047+evMfDRr94MG9EWw==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data></KeyInfo><Object Id="ts-countersig"><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data><CounterSignature ts-format="cms-timestamp-message" xmlns="http://schemas.microsoft.com/xmldsig/timestamp/2003">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</CounterSignature></Object></Signature></doc>
