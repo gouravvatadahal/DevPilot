@@ -22,11 +22,37 @@ namespace DevPilot.Controllers
         public async Task<ActionResult> Users()
         {
             var featureManager = (FeatureManager)HttpContext.Application["FeatureManager"];
-            if (await featureManager.IsEnabledAsync("NewFeature"))
+            try
             {
-                return Redirect("~/UserList.aspx");
+                if (await featureManager.IsEnabledAsync("NewFeature"))
+                {
+                    return Redirect("~/UserList.aspx");
+                }
+                else
+                {
+                    return View();
+                }
             }
-            else
+            catch (Exception ex)
+            {
+                return Redirect("~/Error.asp");
+            }
+        }
+        public async Task<ActionResult> Features()
+        {
+            var featureManager = (FeatureManager)HttpContext.Application["FeatureManager"];
+            try
+            {
+                if (await featureManager.IsEnabledAsync("NewFeatureTest"))
+                {
+                    return Redirect("~/UserList.aspx");
+                }
+                else
+                {
+                    return Redirect("~/Error.asp");
+                }
+            }
+            catch (Exception ex)
             {
                 return Redirect("~/Error.asp");
             }
